@@ -1,0 +1,56 @@
+{% macro display(posts_list) %}
+
+    {% for post in posts_list %}
+    <div class="card text-center">
+        <div class="card-header">
+          by:{{post.author}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.post|truncate(100)}}</p>
+          <a href="{{url_for('main.blog', id = post.id)}}" class="btn btn-primary">read more >></a>
+          
+        </div>
+        <div class="card-footer text-muted">
+          <b>posted on:</b>{{post.date_posted.strftime('%Y-%m-%d')}}
+          <a href="{{url_for('main.new_comment',post_id = post.id)}}" class="btn btn-info">comment</a>
+        </div>
+        
+      </div>
+      <br>
+      
+       
+    {% endfor %}
+
+{% endmacro %}
+
+{% macro displayComment(comments) %}
+<ul>
+			{% if comments %}
+            {% for comment in comments %}
+            
+            <div class="card text-center">
+                <div class="card-header">
+                  by:{{comment.user.username}}
+                </div>
+                <div class="card-body">
+                
+                  <p class="card-text">{{comment.description}}</p>
+                  
+                </div>
+                <div class="card-footer text-muted">
+                    <button class="btn btn-danger">delete</button>
+                </div>
+               
+            </div>
+				
+				
+				
+			{% endfor %}
+			{% else %}
+
+			<h3>No comments for this post yet!!</h3>
+			{%endif%}
+
+	</ul>
+	{% endmacro %}
