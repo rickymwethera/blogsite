@@ -5,13 +5,14 @@ class Config:
     
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:mwethera99@localhost/blogsite'
+    SECRET_KEY = '12345678'
 
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_USERNAME = 'rickymwethera@gmail.com'
+    MAIL_PASSWORD = 'rickyricky'
 
 
 
