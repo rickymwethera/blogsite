@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content %}
+<style>
+    body{
+        background-color: indianred;
+    }
+</style>
+<div class="container">
+
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <hr>
+      <p class="card-text">{{post.post}}</p>
+      
+      
+    </div>
+    <div class="card-footer text-muted">
+      <b>posted on:</b>{{post.date_posted}} <br>
+      <b>by:</b>{{post.author}} <br>
+      <a href="{{url_for('main.new_comment',post_id = post.id)}}" class="btn btn-info">go to comments</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
