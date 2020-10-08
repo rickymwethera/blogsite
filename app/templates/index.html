@@ -1,3 +1,35 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
+{% block content %}
+<style>
+    body{
+        background-color: brown;
+    }
+    .head{
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<div class="head">
+    <h2>Welcome to the new Blogsite</h2>
+</div>
+<div class="head text-center">
+    <button class="btn btn-success"><a href="{{url_for('main.new_post')}}">post new blog</a></button>
+    <br>
+    <div class="row">
+        <div class="col-md-3"></div>
+    <form  class="col-md-6" method="POST">
+        
+        <input type="email" class="form-control" name="subs" placeholder="Enter your email..." required>
+        <button type="submit" class="btn btn-outline-primary">subscribe</button>
+    </form>
+    </div>
+</div>
+
+<div class="container">
+    {{ macro.display(posts) }}
+</div>
+
+{% endblock %}
